@@ -1,8 +1,5 @@
-#FROM debian:buster-slim
-#RUN apt-get update \
-#    && apt-get install curl \
-#    && curl https://raw.githubusercontent.com/nektos/act/master/install.sh | bash 
 FROM golang:1.11-alpine as build
+
 RUN apk add --no-cache gcc libc-dev git \
     && go get -u github.com/nektos/act
 
