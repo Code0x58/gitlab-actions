@@ -16,5 +16,3 @@ GitHub Actions:
     - git checkout -B "$CI_COMMIT_REF_NAME" "$CI_COMMIT_SHA"
     - act --list
     - DOCKER_API_VERSION=1.39 act
-  tags:
-    - mintel
