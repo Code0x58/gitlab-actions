@@ -6,8 +6,8 @@ RUN apk add --no-cache gcc libc-dev git \
 FROM alpine:3.8
 COPY --from=build /go/bin/act /usr/local/bin/act
 # bash is needed for sh -c '...' used by docker/GitLab's CMD
-# git+docker are needed by act
-# not creating /github/workspace as path is /build/$full_project_path
+# git is are needed by act
+# not creating /github/workspace as path is /build/$CI_PROJECT_NAME
 RUN apk add --no-cache bash git \
     && sed -i '1croot:x:0:0:root:/root:/bin/bash' /etc/passwd \
     && mkdir -p /github/home /github/workflow
