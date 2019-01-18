@@ -3,7 +3,7 @@ FROM golang:1.11-alpine as build
 RUN apk add --no-cache gcc libc-dev git \
     && go get -u github.com/nektos/act
 
-FROM docker:dind
+FROM alpine:3.8
 COPY --from=build /go/bin/act /usr/local/bin/act
 # bash is needed for sh -c '...' used by docker/GitLab's CMD
 # git+docker are needed by act
